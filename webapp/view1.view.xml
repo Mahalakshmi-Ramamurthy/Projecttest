@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<mvc:View controllerName="testapp1.view.Root" displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+    	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" >
+					</Page>
+			</pages>
+		</App>
+	</Shell>
+
+</mvc:View>
