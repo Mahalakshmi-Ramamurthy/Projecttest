@@ -1,5 +1,5 @@
 ID: ZPT
-_schema-version: "2.1"
+_schema-version: '2.1'
 parameters:
   deploy_mode: html5-repo
 version: 0.0.1
@@ -12,11 +12,18 @@ modules:
       memory: 256M
     requires:
       - name: ZPT_html5_repo_runtime
+      - name: uaa_ZPT
   - name: ZPT_ui_deployer
     type: com.sap.html5.application-content
     path: ZPT_ui_deployer
     requires:
       - name: ZPT_html5_repo_host
+    build-parameters:
+      requires:
+        - name: app
+          artifacts:
+            - './*'
+          target-path: resources/app
   - name: ZPT-db
     type: hdb
     path: db
@@ -34,9 +41,19 @@ modules:
     provides:
       - name: srv_api
         properties:
-          url: ${default-url}
+          url: '${default-url}'
     requires:
       - name: ZPT-db-hdi-container
+  - name: app
+    type: html5
+    path: app
+    build-parameters:
+      builder: custom
+      commands:
+        - npm install
+        - npm run build
+      supported-platforms: []
+      build-result: dist
 resources:
   - name: ZPT_html5_repo_runtime
     parameters:
@@ -51,4 +68,15 @@ resources:
   - name: ZPT-db-hdi-container
     type: com.sap.xs.hdi-container
     properties:
-      hdi-container-name: ${service-name}
+      hdi-container-name: '${service-name}'
+  - name: uaa_ZPT
+    parameters:
+      path: ./xs-security.json
+      service-plan: application
+      service: xsuaa
+    type: org.cloudfoundry.managed-service
+  - name: dest_ZPT
+    parameters:
+      service-plan: lite
+      service: destination
+    type: org.cloudfoundry.managed-service
