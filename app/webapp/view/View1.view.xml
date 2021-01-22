@@ -3,7 +3,23 @@
 		<App id="app">
 			<pages>
 				<Page id="page" title="{i18n>title}">
-					<content></content>
+					<content>
+						<smartTable:SmartTable id="main_SmartTable" smartFilterId="smartFilterBar" tableType="ResponsiveTable" placeToolbarInTable="true"
+																			useExportToExcel="true" useVariantManagement="false" useTablePersonalisation="false" header="{i18n>RightsideLowerrightTitle}" showRowCount="false"
+																			enableAutoBinding="true" beforeExport="onBeforeExport" demandPopin="true" class="sapUiTinyMarginBeginEnd sapUiTinyMarginTopBottom" height="38vh"
+																			beforeRebindTable="onBeforeRebindTable" initiallyVisibleFields="SYSTEM,ROLENAME,ROLEDESC,NUMOFTCODE,NUMOFTCODENOTEXECUTED,NUMOFUSERS"
+																			entitySet="ACTIONUSAGEs">
+																			<smartTable:customToolbar>
+																				<OverflowToolbar design="Transparent">
+																					<!--<Title text="{i18n>RightsideLowerrightTitle}" width="auto" wrapping="true" textAlign="Begin" visible="true" titleStyle="H3"/> -->
+																					<ToolbarSpacer/>
+																					<Link text="{i18n>details}" press="onRoleAnalysisPress" wrapping="true"/>
+																				</OverflowToolbar>
+																			</smartTable:customToolbar>
+																			
+																			
+																		</smartTable:SmartTable>
+					</content>
 				</Page>
 			</pages>
 		</App>
