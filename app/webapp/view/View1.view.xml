@@ -1,4 +1,10 @@
-<mvc:View controllerName="com.app.app.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+<mvc:View controllerName="com.app.app.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
+	xmlns:u="sap.ui.unified" xmlns:f="sap.f" xmlns:card="sap.f.cards"
+	xmlns:core="sap.ui.core" xmlns:microchart="sap.suite.ui.microchart" xmlns:layout="sap.ui.layout"
+	xmlns:data="sap.chart.data" xmlns:statusindicator="sap.suite.ui.commons.statusindicator" xmlns:tnt="sap.tnt"
+	xmlns:viz="sap.viz.ui5.controls" xmlns:viz.data="sap.viz.ui5.data" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns:smartField="sap.ui.comp.smartfield"
+	xmlns:l="sap.ui.layout" xmlns:chart="sap.suite.ui.commons" class="sapUiSizeCompact">
 	<Shell id="shell">
 		<App id="app">
 			<pages>
@@ -7,15 +13,9 @@
 						<smartTable:SmartTable id="main_SmartTable" smartFilterId="smartFilterBar" tableType="ResponsiveTable" placeToolbarInTable="true"
 																			useExportToExcel="true" useVariantManagement="false" useTablePersonalisation="false" header="{i18n>RightsideLowerrightTitle}" showRowCount="false"
 																			enableAutoBinding="true" beforeExport="onBeforeExport" demandPopin="true" class="sapUiTinyMarginBeginEnd sapUiTinyMarginTopBottom" height="38vh"
-																			beforeRebindTable="onBeforeRebindTable" initiallyVisibleFields="SYSTEM,ROLENAME,ROLEDESC,NUMOFTCODE,NUMOFTCODENOTEXECUTED,NUMOFUSERS"
-																			entitySet="ACTIONUSAGEs">
-																			<smartTable:customToolbar>
-																				<OverflowToolbar design="Transparent">
-																					<!--<Title text="{i18n>RightsideLowerrightTitle}" width="auto" wrapping="true" textAlign="Begin" visible="true" titleStyle="H3"/> -->
-																					<ToolbarSpacer/>
-																					<Link text="{i18n>details}" press="onRoleAnalysisPress" wrapping="true"/>
-																				</OverflowToolbar>
-																			</smartTable:customToolbar>
+																			beforeRebindTable="onBeforeRebindTable" 
+																			entitySet="">
+																			
 																			
 																			
 																		</smartTable:SmartTable>
